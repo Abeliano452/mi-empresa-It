@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Soporte | NET_SUPPORT</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: #00d4ff; text-decoration: none; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+
+        .main-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 600px;
+            border: 1px solid var(--border);
+        }
+
+        h2 { color: var(--primary-color); margin-top: 0; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: #0f172a;
+            color: white;
+            box-sizing: border-box;
+        }
+
+        .btn-submit {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 1rem;
+            transition: background 0.3s;
+        }
+
+        .btn-submit:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">NET_SUPPORT</a>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html">Servicios</a>
+        <a href="soporte.html" style="color: #00d4ff;">Soporte</a>
+    </nav>
+</header>
+
+<div class="main-content">
+    <div class="container">
+        <h2>Abrir Ticket de Soporte</h2>
+        <p>Los datos se enviarán directamente a nuestro equipo técnico.</p>
+        
+        <form action="https://formspree.io/f/mjgjweya" method="POST">
+            
+            <div class="form-group">
+                <label>Nombre o Empresa:</label>
+                <input type="text" name="cliente" required placeholder="Ej: Juan Pérez / Empresa S.A.">
+            </div>
+
+            <div class="form-group">
+                <label>Correo de contacto:</label>
+                <input type="email" name="_replyto" required placeholder="tuemail@ejemplo.com">
+            </div>
+
+            <div class="form-group">
+                <label>Categoría:</label>
+                <select name="servicio">
+                    <option value="Red/Dominio">Problemas de Red / Dominio</option>
+                    <option value="Hardware">Falla de Equipo</option>
+                    <option value="Software">Problemas de Software</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Descripción del problema:</label>
+                <textarea name="mensaje" required placeholder="Explica detalladamente qué sucede..."></textarea>
+            </div>
+
+            <input type="hidden" name="_subject" value="Nuevo Ticket de Soporte IT">
+
+            <button type="submit" class="btn-submit">Enviar Solicitud</button>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechSupport & Network | Tu Socio IT</title>
+    <style>
+        /* Estilos Globales */
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #00d4ff;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.9);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #334155;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: 500;
+        }
+
+        /* Sección Hero */
+        .hero {
+            height: 60vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(15,23,42,1)), url('https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            padding: 0 20px;
+        }
+
+        .hero h1 { font-size: 3rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #94a3b8; max-width: 600px; }
+
+        /* Contenedor de Servicios */
+        .services {
+            padding: 50px 5%;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            border: 1px solid #334155;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-color);
+        }
+
+        .card h3 { color: var(--secondary-color); }
+
+        /* Botones */
+        .btn {
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: #020617;
+            border-top: 1px solid #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">NET_SUPPORT</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="soporte.html">Soporte</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="inicio">
+        <h1>Conectamos tu empresa al futuro</h1>
+        <p>Expertos en despliegue de redes bajo dominio corporativo y soporte técnico integral.</p>
+        <a href="soporte.html">Solicitar Soporte Técnico</a>
+    </section>
+
+    <section class="services" id="servicios">
+        <div class="card">
+            <h3>Redes y Dominios</h3>
+            <p>Configuramos tu infraestructura para que operes bajo un dominio seguro y centralizado.</p>
+        </div>
+        <div class="card">
+            <h3>Soporte IT</h3>
+            <p>Asistencia técnica remota y presencial. Resolvemos tus problemas en tiempo récord.</p>
+        </div>
+        <div class="card">
+            <h3>Ciberseguridad</h3>
+            <p>Protegemos tus datos y los de tus clientes con protocolos de última generación.</p>
+        </div>
+    </section>
+
+    <section style="padding: 50px 5%; text-align: center;" id="contacto">
+        <h2>¿Tienes una incidencia?</h2>
+        <p>Nuestro equipo está listo para ayudarte con tu red o equipos.</p>
+        <p><strong>Email:</strong> contacto@tuempresa.com</p>
+        <p><strong>Teléfono:</strong> +123 456 789</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Net Support IT Services. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

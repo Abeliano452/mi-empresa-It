@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestros Servicios | NET_SUPPORT</title>
+    <style>
+        :root {
+            --primary-color: #007bff;
+            --secondary-color: #00d4ff;
+            --bg-dark: #0f172a;
+            --card-bg: #1e293b;
+            --text-light: #f8fafc;
+            --border: #334155;
+        }
+
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            background: rgba(15, 23, 42, 0.95);
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--secondary-color); text-decoration: none; }
+
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        nav a:hover { color: var(--secondary-color); }
+
+        .container { padding: 60px 10%; }
+
+        h1 { text-align: center; font-size: 2.5rem; color: var(--secondary-color); }
+
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .service-detail:nth-child(even) { direction: rtl; }
+        .service-detail:nth-child(even) .text-box { direction: ltr; }
+
+        .text-box h2 { color: var(--primary-color); font-size: 1.8rem; }
+        
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li::before { content: "✓ "; color: var(--secondary-color); font-weight: bold; }
+
+        .img-placeholder {
+            background: var(--card-bg);
+            border-radius: 15px;
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid var(--border);
+            font-size: 4rem;
+        }
+
+        .cta-box {
+            background: linear-gradient(90deg, #007bff, #00d4ff);
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .btn-white {
+            background: white;
+            color: var(--primary-color);
+            padding: 12px 25px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="logo">NET_SUPPORT</a>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="servicios.html" style="color: var(--secondary-color);">Servicios</a>
+        <a href="soporte.html">Soporte</a>
+    </nav>
+</header>
+
+<div class="container">
+    <h1>Soluciones Tecnológicas a tu Medida</h1>
+    <p style="text-align: center; color: #94a3b8;">Impulsamos la digitalización de tu empresa con infraestructura robusta.</p>
+
+    <section class="service-detail">
+        <div class="text-box">
+            <h2>Redes Corporativas y Dominios</h2>
+            <p>Integramos a todos tus empleados en una red segura bajo un dominio corporativo personalizado. Esto permite una gestión centralizada y una imagen profesional única.</p>
+            <ul class="feature-list">
+                <li>Gestión de dominios (.com, .net, .es)</li>
+                <li>Configuración de DNS y Hosting</li>
+                <li>Intranet segura para empleados</li>
+            </ul>
+        </div>
+        <div class="img-placeholder">🌐</div>
+    </section>
+
+    <section class="service-detail">
+        <div class="text-box">
+            <h2>Soporte IT y Mantenimiento</h2>
+            <p>No dejes que un fallo técnico detenga tu producción. Nuestro equipo de soporte está listo para intervenir de forma remota o presencial.</p>
+            <ul class="feature-list">
+                <li>Mantenimiento preventivo de hardware</li>
+                <li>Limpieza de virus y optimización</li>
+                <li>Soporte técnico remoto 24/7</li>
+            </ul>
+        </div>
+        <div class="img-placeholder">🛠️</div>
+    </section>
+
+    <div class="cta-box">
+        <h3>¿Necesitas un plan personalizado?</h3>
+        <p>Analizamos las necesidades de tu empresa sin compromiso.</p>
+        <a href="soporte.html" class="btn-white">Contactar con un experto</a>
+    </div>
+</div>
+
+</body>
+</html>
