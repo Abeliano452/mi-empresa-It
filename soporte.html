@@ -99,36 +99,38 @@
         <h2>Abrir Ticket de Soporte</h2>
         <p>Los datos se enviarán directamente a nuestro equipo técnico.</p>
         
-        <form action="https://formspree.io/f/mjgjweya" method="POST">
-            
-            <div class="form-group">
-                <label>Nombre o Empresa:</label>
-                <input type="text" name="cliente" required placeholder="Ej: Juan Pérez / Empresa S.A.">
-            </div>
+        <form action="https://formspree.io/f/mjgjweya" method="POST" id="ticketForm">
+    <input type="hidden" id="ticket_id" name="ID_Ticket">
 
-            <div class="form-group">
-                <label>Correo de contacto:</label>
-                <input type="email" name="_replyto" required placeholder="tuemail@ejemplo.com">
-            </div>
+    <div class="form-group">
+        <label for="cliente">Nombre o Empresa:</label>
+        <input type="text" id="cliente" name="cliente" required placeholder="Ej: Juan Pérez / Empresa">
+    </div>
 
-            <div class="form-group">
-                <label>Categoría:</label>
-                <select name="servicio">
-                    <option value="Red/Dominio">Problemas de Red / Dominio</option>
-                    <option value="Hardware">Falla de Equipo</option>
-                    <option value="Software">Problemas de Software</option>
-                </select>
-            </div>
+    <div class="form-group">
+        <label for="email">Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required placeholder="nombre@ejemplo.com">
+    </div>
 
-            <div class="form-group">
-                <label>Descripción del problema:</label>
-                <textarea name="mensaje" required placeholder="Explica detalladamente qué sucede..."></textarea>
-            </div>
+    <div class="form-group">
+        <label for="asunto">Asunto del Problema:</label>
+        <input type="text" id="asunto" name="asunto" required placeholder="Breve descripción">
+    </div>
 
-            <input type="hidden" name="_subject" value="Nuevo Ticket de Soporte IT">
+    <div class="form-group">
+        <label for="mensaje">Descripción Detallada:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required placeholder="Cuéntanos qué sucede..."></textarea>
+    </div>
 
-            <button type="submit" class="btn-submit">Enviar Solicitud</button>
-        </form>
+    <button type="submit" class="btn-enviar">Enviar Ticket</button>
+
+    <script>
+        window.onload = function() {
+            const randomNum = Math.floor(Math.random() * 90000) + 10000;
+            document.getElementById('ticket_id').value = "TKT-" + randomNum;
+        };
+    </script>
+</form>
     </div>
 </div>
 
