@@ -45,6 +45,11 @@
             text-decoration: none;
             margin-left: 20px;
             font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--secondary-color);
         }
 
         /* Sección Hero */
@@ -96,6 +101,22 @@
             display: inline-block;
             margin-top: 20px;
             font-weight: bold;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #0056b3;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--secondary-color);
+            color: var(--bg-dark);
         }
 
         /* Footer */
@@ -105,6 +126,21 @@
             background: #020617;
             border-top: 1px solid #334155;
         }
+
+        .footer-links {
+            margin-top: 15px;
+        }
+
+        .footer-links a {
+            color: #94a3b8;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
     </style>
 </head>
 <body>
@@ -112,17 +148,18 @@
     <header>
         <div class="logo">NET_SUPPORT</div>
         <nav>
-    <a href="index.html">Inicio</a>
-    <a href="servicios.html">Servicios</a>
-    <a href="descargas.html">Descargas</a> 
-    <a href="soporte.html">Soporte</a>
+            <a href="index.html">Inicio</a>
+            <a href="servicios.html">Servicios</a>
+            <a href="descargas.html">Descargas</a> 
+            <a href="soporte.html">Soporte</a>
+            <a href="unete.html" style="color: var(--secondary-color); border: 1px solid var(--secondary-color); padding: 5px 10px; border-radius: 4px;">Trabaja con nosotros</a>
         </nav>
     </header>
 
     <section class="hero" id="inicio">
         <h1>Conectamos tu empresa al futuro</h1>
         <p>Expertos en despliegue de redes bajo dominio corporativo y soporte técnico integral.</p>
-        <a href="soporte.html">Solicitar Soporte Técnico</a>
+        <a href="soporte.html" class="btn">Solicitar Soporte Técnico</a>
     </section>
 
     <section class="services" id="servicios">
@@ -140,15 +177,26 @@
         </div>
     </section>
 
+    <section style="padding: 60px 5%; text-align: center; background: #1e293b;">
+        <h2>¿Eres un experto en tecnología?</h2>
+        <p>Buscamos talento para nuestras áreas de Redes y Soporte Técnico.</p>
+        <a href="unete.html" class="btn btn-outline">¡Únete a nuestro equipo!</a>
+    </section>
+
     <section style="padding: 50px 5%; text-align: center;" id="contacto">
         <h2>¿Tienes una incidencia?</h2>
         <p>Nuestro equipo está listo para ayudarte con tu red o equipos.</p>
-        <p><strong>Email:</strong> contacto@tuempresa.com</p>
+        <p><strong>Email:</strong> soporteJSolution@gmail.com</p>
         <p><strong>Teléfono:</strong> +123 456 789</p>
     </section>
 
     <footer>
-        <p>&copy; 2024 Net Support IT Services. Todos los derechos reservados.</p>
+        <p>&copy; 2026 Net Support IT Services. Todos los derechos reservados.</p>
+        <div class="footer-links">
+            <a href="index.html">Inicio</a> | 
+            <a href="soporte.html">Soporte</a> | 
+            <a href="unete.html">Trabaja con nosotros</a>
+        </div>
     </footer>
 
 </body>

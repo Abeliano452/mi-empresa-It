@@ -8,12 +8,18 @@
     <style>
         body { background-color: #0f172a; color: white; font-family: sans-serif; display: flex; flex-direction: column; align-items: center; padding: 50px; }
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; width: 100%; max-width: 1000px; }
-        .card { background: #1e293b; padding: 30px; border-radius: 15px; border: 1px solid #334155; text-align: center; transition: 0.3s; }
+        .card { background: #1e293b; padding: 30px; border-radius: 15px; border: 1px solid #334155; text-align: center; transition: 0.3s; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: #ef4444; transform: translateY(-5px); }
-        .btn { display: inline-block; background: #ef4444; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 20px; }
+        .btn { display: inline-block; background: #ef4444; color: white; padding: 12px 25px; text-decoration: none; border-radius: 8px; font-weight: bold; margin-top: 10px; font-size: 0.9rem; }
+        
+        /* Botón específico para Ubuntu */
+        .btn-ubuntu { background: #E95420 !important; } 
+        .btn-ubuntu:hover { background: #c7461b !important; }
+
         .icon { font-size: 3rem; color: #ef4444; margin-bottom: 15px; }
         h1 { margin-bottom: 40px; color: #f8fafc; }
         .nav-back { margin-bottom: 20px; color: #94a3b8; text-decoration: none; }
+        .nav-back:hover { color: white; }
     </style>
 </head>
 <body>
@@ -23,24 +29,41 @@
 
     <div class="grid">
         <div class="card">
-            <div class="icon"><i class="fas fa-desktop"></i></div>
-            <h2>AnyDesk</h2>
-            <p>Nuestra herramienta principal para soporte remoto. Rápida y ligera.</p>
-            <a href="https://download.anydesk.com/AnyDesk.exe" class="btn">Descargar para Windows</a>
+            <div>
+                <div class="icon"><i class="fas fa-desktop"></i></div>
+                <h2>AnyDesk</h2>
+                <p>Nuestra herramienta principal para soporte remoto. Rápida y ligera.</p>
+            </div>
+            <div>
+                <a href="https://download.anydesk.com/AnyDesk.exe" class="btn">
+                    <i class="fab fa-windows"></i> Descargar para Windows
+                </a>
+                <a href="https://download.anydesk.com/linux/anydesk_6.3.2-1_amd64.deb" class="btn btn-ubuntu">
+                    <i class="fab fa-linux"></i> Descargar para Ubuntu (.deb)
+                </a>
+            </div>
         </div>
 
         <div class="card">
-            <div class="icon"><i class="fas fa-house-laptop"></i></div>
-            <h2>TeamViewer</h2>
-            <p>Alternativa de soporte remoto para conexiones empresariales.</p>
-            <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" class="btn" style="background:#334155;">Descargar para Windows</a>
+            <div>
+                <div class="icon"><i class="fas fa-house-laptop"></i></div>
+                <h2>TeamViewer</h2>
+                <p>Alternativa de soporte remoto para conexiones empresariales.</p>
+            </div>
+            <a href="https://download.teamviewer.com/download/TeamViewer_Setup_x64.exe" class="btn" style="background:#334155;">
+                <i class="fab fa-windows"></i> Descargar para Windows
+            </a>
         </div>
         
         <div class="card">
-            <div class="icon"><i class="fas fa-hard-drive"></i></div>
-            <h2>Diagnóstico de Disco</h2>
-            <p>¿Tu PC va lento? Descarga esto para verificar la salud de tu disco duro.</p>
-            <a href="https://crystalmark.info/redirect.php?product=CrystalDiskInfoInstaller" class="btn" style="background:#0ea5e9;">Descargar Diagnóstico</a>
+            <div>
+                <div class="icon"><i class="fas fa-hard-drive"></i></div>
+                <h2>Diagnóstico de Disco</h2>
+                <p>¿Tu PC va lento? Descarga esto para verificar la salud de tu disco duro.</p>
+            </div>
+            <a href="https://crystalmark.info/redirect.php?product=CrystalDiskInfoInstaller" class="btn" style="background:#0ea5e9;">
+                <i class="fas fa-download"></i> Descargar Diagnóstico
+            </a>
         </div>
     </div>
 
