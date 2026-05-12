@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Centro de Autoayuda | NET_SUPPORT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card: #1e293b;
+            --accent: #f59e0b; /* Naranja alerta/ayuda */
+            --primary: #00d4ff;
+            --text: #f8fafc;
+        }
+
+        body {
+            font-family: 'Segoe UI', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 100%;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .header h1 {
+            color: var(--accent);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .step-card {
+            background: var(--card);
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 20px;
+            border: 1px solid #334155;
+            display: flex;
+            align-items: flex-start;
+            transition: transform 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateX(10px);
+            border-color: var(--accent);
+        }
+
+        .step-number {
+            background: var(--accent);
+            color: #000;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            margin: 0 0 10px 0;
+            color: var(--primary);
+        }
+
+        .step-content p {
+            margin: 0;
+            color: #94a3b8;
+            line-height: 1.5;
+        }
+
+        .action-bar {
+            background: rgba(245, 158, 11, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+            border: 1px dashed var(--accent);
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: #0f172a;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: white;
+            transform: scale(1.05);
+        }
+
+        .back-home {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #64748b;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1><i class="fas fa-first-aid"></i> Primeros Auxilios IT</h1>
+        <p>El 70% de las incidencias se resuelven con estas 4 comprobaciones.</p>
+    </div>
+
+    <div class="step-card">
+        <div class="step-number">1</div>
+        <div class="step-content">
+            <h3>Reiniciar el sistema</h3>
+            <p>Parece un tópico, pero reiniciar vacía la memoria RAM y cierra procesos bloqueados. Apaga el equipo, espera 10 segundos y vuelve a encenderlo.</p>
+        </div>
+    </div>
+
+    <div class="step-card">
+        <div class="step-number">2</div>
+        <div class="step-content">
+            <h3>Verificación de Cables</h3>
+            <p>Asegúrate de que el cable de red (internet) haga "click" al entrar y que los cables de corriente estén bien apretados. Un cable flojo es la causa #1 de fallos de monitor e internet.</p>
+        </div>
+    </div>
+
+    <div class="step-card">
+        <div class="step-number">3</div>
+        <div class="step-content">
+            <h3>Comprobar Actualizaciones</h3>
+            <p>Si el PC va lento, mira si Windows está instalando actualizaciones en segundo plano. Ve a Configuración > Windows Update.</p>
+        </div>
+    </div>
+
+    <div class="step-card">
+        <div class="step-number">4</div>
+        <div class="step-content">
+            <h3>Limpieza de Navegador</h3>
+            <p>Si una web no carga, intenta abrirla en una "Ventana de Incógnito". Si ahí funciona, solo necesitas borrar las cookies y el historial.</p>
+        </div>
+    </div>
+
+    <div class="action-bar">
+        <h3>¿Sigue sin funcionar?</h3>
+        <p>No te preocupes, para eso estamos nosotros. Envía un ticket y un técnico de Madrid te atenderá de inmediato.</p>
+        <a href="soporte.html" class="btn">Abrir Ticket de Soporte</a>
+    </div>
+
+    <a href="index.html" class="back-home"><i class="fas fa-arrow-left"></i> Volver a la página principal</a>
+</div>
+
+</body>
+</html>
