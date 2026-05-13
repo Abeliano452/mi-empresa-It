@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solicitar Soporte | NET_SUPPORT</title>
+    
+    <!-- Librería de iconos para WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --primary-color: #007bff;
@@ -11,6 +15,7 @@
             --card-bg: #1e293b;
             --text-light: #f8fafc;
             --border: #334155;
+            --whatsapp-green: #25d366;
         }
 
         body {
@@ -53,9 +58,9 @@
             border: 1px solid var(--border);
         }
 
-        h2 { color: var(--primary-color); margin-top: 0; }
+        h2 { color: #00d4ff; margin-top: 0; }
         .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: 500; }
+        label { display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8; }
 
         input, select, textarea {
             width: 100%;
@@ -65,9 +70,14 @@
             background: #0f172a;
             color: white;
             box-sizing: border-box;
+            outline: none;
+            transition: border-color 0.3s;
         }
 
-        /* Estilo para que la fecha se vea como informativa */
+        input:focus, textarea:focus {
+            border-color: #00d4ff;
+        }
+
         input[readonly] {
             background: #1e293b;
             color: #94a3b8;
@@ -84,10 +94,41 @@
             font-weight: bold;
             width: 100%;
             font-size: 1rem;
-            transition: background 0.3s;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
-        .btn-submit:hover { background: #0056b3; }
+        .btn-submit:hover { 
+            background: #00d4ff; 
+            color: #0f172a;
+            transform: translateY(-2px);
+        }
+
+        /* --- BOTÓN DE WHATSAPP --- */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: var(--whatsapp-green);
+            color: white !important;
+            width: 60px;
+            height: 60px;
+            border-radius: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+            z-index: 1000;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1) rotate(5deg);
+            background-color: #128c7e;
+        }
+
     </style>
 </head>
 <body>
@@ -104,7 +145,7 @@
 <div class="main-content">
     <div class="container">
         <h2>Abrir Ticket de Soporte</h2>
-        <p>Los datos se enviarán directamente a nuestro equipo técnico.</p>
+        <p style="color: #94a3b8;">Los datos se enviarán directamente a nuestro equipo técnico.</p>
         
         <form action="https://hooks.zapier.com/hooks/catch/27279269/uj5pse1/" method="POST" id="ticketForm">
             <input type="hidden" id="ticket_id" name="ID_Ticket">
@@ -135,22 +176,28 @@
             </div>
 
             <button type="submit" class="btn-submit">Enviar Ticket</button>
-
-            <script>
-                window.onload = function() {
-                    // Lógica ID Ticket
-                    const randomNum = Math.floor(Math.random() * 90000) + 10000;
-                    document.getElementById('ticket_id').value = "TKT-" + randomNum;
-
-                    // Lógica Fecha automática
-                    const hoy = new Date();
-                    const opciones = { year: 'numeric', month: '2-digit', day: '2-digit' };
-                    document.getElementById('fecha').value = hoy.toLocaleDateString('es-ES', opciones);
-                };
-            </script>
         </form>
     </div>
 </div>
 
+<!-- BOTÓN WHATSAPP -->
+<a href="https://wa.me/34600000000?text=Hola,%20necesito%20asistencia%20técnica%20urgente" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+    // Lógica del Formulario (Fecha e ID)
+    window.onload = function() {
+        // Generar un ID de ticket aleatorio
+        const randomNum = Math.floor(Math.random() * 90000) + 10000;
+        document.getElementById('ticket_id').value = "TKT-" + randomNum;
+
+        // Establecer fecha actual
+        const hoy = new Date();
+        const opciones = { year: 'numeric', month: '2-digit', day: '2-digit' };
+        document.getElementById('fecha').value = hoy.toLocaleDateString('es-ES', opciones);
+    };
+</script>
+        
 </body>
 </html>

@@ -9,9 +9,10 @@
         :root {
             --primary: #00d4ff;
             --secondary: #f59e0b;
-            --bg: #050a18; /* Azul muy oscuro como el de tu imagen */
+            --bg: #050a18; 
             --card: #111a2d;
             --text: #f8fafc;
+            --bot-bg: #1e293b;
         }
 
         body {
@@ -35,13 +36,9 @@
         }
 
         .logo { color: var(--primary); font-weight: bold; font-size: 1.5rem; text-decoration: none; }
-
         .nav-links { display: flex; gap: 25px; align-items: center; }
-
         .nav-links a { color: var(--text); text-decoration: none; font-size: 0.9rem; transition: 0.3s; }
-
         .nav-links a:hover { color: var(--primary); }
-
         .btn-trabaja {
             border: 1px solid var(--primary);
             padding: 8px 15px;
@@ -49,7 +46,7 @@
             color: var(--primary) !important;
         }
 
-        /* HERO SECTION (Como tu imagen) */
+        /* HERO SECTION */
         .hero {
             height: 70vh;
             display: flex;
@@ -67,7 +64,6 @@
         .hero h1 { font-size: 3rem; margin-bottom: 10px; }
         .hero p { font-size: 1.1rem; color: #94a3b8; max-width: 700px; }
 
-        /* CONTENEDOR DE BOTONES */
         .cta-group {
             margin-top: 30px;
             display: flex;
@@ -85,15 +81,15 @@
         }
 
         .btn-ayuda { background: var(--secondary); color: #000; }
-        .btn-solicitar { background: #007bff; color: white; } /* Azul del botón original */
+        .btn-solicitar { background: #007bff; color: white; }
 
-        /* TARJETAS DE SERVICIOS (Tus 3 bloques inferiores) */
+        /* TARJETAS DE SERVICIOS */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
             padding: 50px 5%;
-            margin-top: -50px; /* Para que monten un poco sobre el hero */
+            margin-top: -50px;
         }
 
         .service-card {
@@ -105,6 +101,103 @@
 
         .service-card h3 { color: var(--primary); margin-top: 0; }
         .service-card p { font-size: 0.9rem; color: #94a3b8; }
+
+        /* =========================================
+           COMPLEX MINI-BOT STYLES
+           ========================================= */
+        #bot-launcher {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 65px;
+            height: 65px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,212,255,0.4);
+            z-index: 10001;
+            transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #bot-launcher:hover { transform: scale(1.1) rotate(15deg); }
+
+        #bot-window {
+            position: fixed;
+            bottom: 110px;
+            right: 30px;
+            width: 350px;
+            height: 500px;
+            background: var(--card);
+            border: 1px solid var(--primary);
+            border-radius: 20px;
+            display: none;
+            flex-direction: column;
+            z-index: 10000;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+        }
+
+        #bot-header {
+            background: linear-gradient(90deg, #111a2d, #1e293b);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid #1e293b;
+        }
+
+        .bot-status { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; }
+
+        #bot-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            background: #0a0f1d;
+        }
+
+        .msg {
+            max-width: 85%;
+            padding: 12px 16px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        .bot-msg { background: var(--bot-bg); color: white; align-self: flex-start; border-bottom-left-radius: 2px; }
+        .user-msg { background: var(--primary); color: #050a18; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 500; }
+
+        #bot-options {
+            padding: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            background: #0a0f1d;
+            border-top: 1px solid #1e293b;
+        }
+
+        .opt-btn {
+            background: transparent;
+            border: 1px solid var(--primary);
+            color: var(--primary);
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            text-align: left;
+            font-size: 0.85rem;
+            transition: 0.3s;
+        }
+
+        .opt-btn:hover { background: var(--primary); color: #050a18; }
+
+        .typing { font-style: italic; color: #94a3b8; font-size: 0.8rem; display: none; }
 
     </style>
 </head>
@@ -148,6 +241,112 @@
             <p>Protegemos tus datos y los de tus clientes con protocolos de última generación.</p>
         </div>
     </section>
+
+    <!-- =========================================
+         COMPLEX MINI-BOT STRUCTURE
+         ========================================= -->
+    <div id="bot-launcher" onclick="toggleBot()">
+        <i class="fas fa-comment-dots" style="font-size: 28px; color: #050a18;"></i>
+    </div>
+
+    <div id="bot-window">
+        <div id="bot-header">
+            <div class="bot-status"></div>
+            <div>
+                <strong style="display: block;">Asistente Virtual</strong>
+                <small style="color: #94a3b8;">En línea ahora</small>
+            </div>
+            <i class="fas fa-times" style="margin-left: auto; cursor: pointer;" onclick="toggleBot()"></i>
+        </div>
+
+        <div id="bot-messages">
+            <div class="msg bot-msg">¡Hola! Bienvenido a <b>NET_SUPPORT</b>. Soy tu asistente técnico de Madrid. ¿Cómo puedo ayudarte hoy?</div>
+            <div id="typing-indicator" class="typing">Escribiendo...</div>
+        </div>
+
+        <div id="bot-options">
+            <button class="opt-btn" onclick="handleInput('servicios', 'Ver servicios IT')">🛠️ Ver servicios IT</button>
+            <button class="opt-btn" onclick="handleInput('urgente', '¡Tengo una urgencia!')">🚨 ¡Tengo una urgencia!</button>
+            <button class="opt-btn" onclick="handleInput('horario', 'Consultar horario')">🕒 Consultar horario</button>
+        </div>
+    </div>
+
+    <script>
+        const messagesContainer = document.getElementById('bot-messages');
+        const optionsContainer = document.getElementById('bot-options');
+        const typingIndicator = document.getElementById('typing-indicator');
+
+        function toggleBot() {
+            const win = document.getElementById('bot-window');
+            win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        function addMessage(text, type) {
+            const msg = document.createElement('div');
+            msg.className = `msg ${type}-msg`;
+            msg.innerHTML = text;
+            messagesContainer.insertBefore(msg, typingIndicator);
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        function handleInput(key, label) {
+            // Añadir mensaje del usuario
+            addMessage(label, 'user');
+            
+            // Mostrar "escribiendo"
+            typingIndicator.style.display = 'block';
+            optionsContainer.style.pointerEvents = 'none';
+            optionsContainer.style.opacity = '0.5';
+
+            setTimeout(() => {
+                typingIndicator.style.display = 'none';
+                optionsContainer.style.pointerEvents = 'all';
+                optionsContainer.style.opacity = '1';
+                generateBotResponse(key);
+            }, 1000);
+        }
+
+        function generateBotResponse(key) {
+            let response = "";
+            let newOptions = "";
+
+            switch(key) {
+                case 'servicios':
+                    response = "Ofrecemos soporte de Nivel 1 y 2, despliegue de redes corporativas y ciberseguridad. ¿Qué área te interesa más?";
+                    newOptions = `
+                        <button class="opt-btn" onclick="handleInput('redes', 'Configuración de Redes')">🌐 Redes y Dominios</button>
+                        <button class="opt-btn" onclick="handleInput('soporte', 'Asistencia Técnica')">🖥️ Soporte Directo</button>
+                        <button class="opt-btn" onclick="handleInput('inicio', 'Volver al inicio')">🔙 Volver</button>
+                    `;
+                    break;
+                case 'redes':
+                    response = "Somos expertos en Active Directory y redes empresariales en Madrid. Podemos optimizar tu infraestructura actual.";
+                    newOptions = `<button class="opt-btn" onclick="location.href='soporte.html'">Solicitar Auditoría</button>
+                                  <button class="opt-btn" onclick="handleInput('inicio', 'Volver')">🔙 Volver</button>`;
+                    break;
+                case 'urgente':
+                    response = "Si es una emergencia crítica, te recomiendo usar nuestro acceso directo a WhatsApp para atención inmediata.";
+                    newOptions = `<button class="opt-btn" style="border-color:#25d366; color:#25d366" onclick="window.open('https://wa.me/34600000000')">📱 Hablar por WhatsApp</button>
+                                  <button class="opt-btn" onclick="handleInput('inicio', 'Menu Principal')">🔙 Menu Principal</button>`;
+                    break;
+                case 'horario':
+                    response = "Nuestro horario de atención técnica presencial es de Lunes a Viernes de 9:00 a 18:30.";
+                    newOptions = `<button class="opt-btn" onclick="handleInput('inicio', 'Entendido')">✅ Entendido</button>`;
+                    break;
+                case 'inicio':
+                default:
+                    response = "¿En qué más puedo asistirte?";
+                    newOptions = `
+                        <button class="opt-btn" onclick="handleInput('servicios', 'Ver servicios IT')">🛠️ Ver servicios IT</button>
+                        <button class="opt-btn" onclick="handleInput('urgente', '¡Tengo una urgencia!')">🚨 ¡Tengo una urgencia!</button>
+                        <button class="opt-btn" onclick="handleInput('horario', 'Consultar horario')">🕒 Consultar horario</button>
+                    `;
+            }
+
+            addMessage(response, 'bot');
+            optionsContainer.innerHTML = newOptions;
+        }
+    </script>
 
 </body>
 </html>
