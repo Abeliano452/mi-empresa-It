@@ -23,7 +23,7 @@
             line-height: 1.6;
         }
 
-        /* NAVEGACIÓN ORIGINAL */
+        /* NAVEGACIÓN */
         nav {
             display: flex;
             justify-content: space-between;
@@ -78,6 +78,8 @@
             text-decoration: none;
             font-weight: bold;
             transition: 0.3s;
+            cursor: pointer;
+            border: none;
         }
 
         .btn-ayuda { background: var(--secondary); color: #000; }
@@ -102,102 +104,57 @@
         .service-card h3 { color: var(--primary); margin-top: 0; }
         .service-card p { font-size: 0.9rem; color: #94a3b8; }
 
-        /* =========================================
-           COMPLEX MINI-BOT STYLES
-           ========================================= */
+        /* BOT STYLES */
         #bot-launcher {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 65px;
-            height: 65px;
-            background: var(--primary);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 8px 20px rgba(0,212,255,0.4);
-            z-index: 10001;
+            position: fixed; bottom: 30px; right: 30px; width: 65px; height: 65px;
+            background: var(--primary); border-radius: 50%; display: flex;
+            justify-content: center; align-items: center; cursor: pointer;
+            box-shadow: 0 8px 20px rgba(0,212,255,0.4); z-index: 10001;
             transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         #bot-launcher:hover { transform: scale(1.1) rotate(15deg); }
 
         #bot-window {
-            position: fixed;
-            bottom: 110px;
-            right: 30px;
-            width: 350px;
-            height: 500px;
-            background: var(--card);
-            border: 1px solid var(--primary);
-            border-radius: 20px;
-            display: none;
-            flex-direction: column;
-            z-index: 10000;
-            overflow: hidden;
+            position: fixed; bottom: 110px; right: 30px; width: 350px; height: 500px;
+            background: var(--card); border: 1px solid var(--primary); border-radius: 20px;
+            display: none; flex-direction: column; z-index: 10000; overflow: hidden;
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
         }
 
         #bot-header {
             background: linear-gradient(90deg, #111a2d, #1e293b);
-            padding: 20px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
+            padding: 20px; display: flex; align-items: center; gap: 12px;
             border-bottom: 1px solid #1e293b;
         }
 
         .bot-status { width: 10px; height: 10px; background: #22c55e; border-radius: 50%; }
 
         #bot-messages {
-            flex: 1;
-            padding: 20px;
-            overflow-y: auto;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            background: #0a0f1d;
+            flex: 1; padding: 20px; overflow-y: auto; display: flex;
+            flex-direction: column; gap: 15px; background: #0a0f1d;
         }
 
-        .msg {
-            max-width: 85%;
-            padding: 12px 16px;
-            border-radius: 15px;
-            font-size: 0.9rem;
-            animation: fadeIn 0.3s ease;
-        }
-
+        .msg { max-width: 85%; padding: 12px 16px; border-radius: 15px; font-size: 0.9rem; animation: fadeIn 0.3s ease; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .bot-msg { background: var(--bot-bg); color: white; align-self: flex-start; border-bottom-left-radius: 2px; }
         .user-msg { background: var(--primary); color: #050a18; align-self: flex-end; border-bottom-right-radius: 2px; font-weight: 500; }
 
         #bot-options {
-            padding: 15px;
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-            background: #0a0f1d;
-            border-top: 1px solid #1e293b;
+            padding: 15px; display: flex; flex-direction: column; gap: 8px;
+            background: #0a0f1d; border-top: 1px solid #1e293b;
         }
 
         .opt-btn {
-            background: transparent;
-            border: 1px solid var(--primary);
-            color: var(--primary);
-            padding: 10px;
-            border-radius: 8px;
-            cursor: pointer;
-            text-align: left;
-            font-size: 0.85rem;
-            transition: 0.3s;
+            background: transparent; border: 1px solid var(--primary); color: var(--primary);
+            padding: 10px; border-radius: 8px; cursor: pointer; text-align: left;
+            font-size: 0.85rem; transition: 0.3s;
         }
 
         .opt-btn:hover { background: var(--primary); color: #050a18; }
 
-        .typing { font-style: italic; color: #94a3b8; font-size: 0.8rem; display: none; }
+        .typing { font-style: italic; color: #94a3b8; font-size: 0.8rem; display: none; margin-bottom: 10px;}
 
     </style>
 </head>
@@ -216,35 +173,33 @@
 
     <header class="hero">
         <h1>Conectamos tu empresa al futuro</h1>
-        <p>Expertos en despliegue de redes bajo dominio corporativo y soporte técnico integral.</p>
+        <p>Expertos en despliegue de redes corporativas, configuración de servidores y soporte técnico integral.</p>
         
         <div class="cta-group">
-            <a href="soluciones.html" class="btn-main btn-ayuda">
-                <i class="fas fa-lightbulb"></i> Prueba esto antes
+            <a href="servicios.html" class="btn-main btn-ayuda">
+                <i class="fas fa-lightbulb"></i> Ver Soluciones
             </a>
-            
-            <a href="soporte.html" class="btn-main btn-solicitar">Solicitar Soporte Técnico</a>
+            <!-- Ahora este botón abre el bot en lugar de ir a una página -->
+            <button onclick="openBotWithProblem()" class="btn-main btn-solicitar">Solicitar Soporte Técnico</button>
         </div>
     </header>
 
     <section class="services-grid" id="servicios">
         <div class="service-card">
             <h3>Redes y Dominios</h3>
-            <p>Configuramos tu infraestructura para que operes bajo un dominio seguro y centralizado.</p>
+            <p>Configuración de infraestructura, switches de 24 puertos y gestión de dominios seguros.</p>
         </div>
         <div class="service-card">
             <h3>Soporte IT</h3>
-            <p>Asistencia técnica remota y presencial. Resolvemos tus problemas en tiempo récord.</p>
+            <p>Asistencia remota y presencial para equipos Dell y servidores de datos.</p>
         </div>
         <div class="service-card">
-            <h3>Ciberseguridad</h3>
-            <p>Protegemos tus datos y los de tus clientes con protocolos de última generación.</p>
+            <h3>Conectividad</h3>
+            <p>Especialistas en configuración de routers Huawei y soluciones para bypass de CG-NAT.</p>
         </div>
     </section>
 
-    <!-- =========================================
-         COMPLEX MINI-BOT STRUCTURE
-         ========================================= -->
+    <!-- MINI-BOT STRUCTURE -->
     <div id="bot-launcher" onclick="toggleBot()">
         <i class="fas fa-comment-dots" style="font-size: 28px; color: #050a18;"></i>
     </div>
@@ -253,21 +208,21 @@
         <div id="bot-header">
             <div class="bot-status"></div>
             <div>
-                <strong style="display: block;">Asistente Virtual</strong>
-                <small style="color: #94a3b8;">En línea ahora</small>
+                <strong style="display: block;">Asistente NET_SUPPORT</strong>
+                <small style="color: #94a3b8;">En línea para ayudarte</small>
             </div>
             <i class="fas fa-times" style="margin-left: auto; cursor: pointer;" onclick="toggleBot()"></i>
         </div>
 
         <div id="bot-messages">
-            <div class="msg bot-msg">¡Hola! Bienvenido a <b>NET_SUPPORT</b>. Soy tu asistente técnico de Madrid. ¿Cómo puedo ayudarte hoy?</div>
+            <div class="msg bot-msg">¡Hola! Soy tu asistente técnico de <b>NET_SUPPORT</b>. ¿Qué problema tenemos hoy?</div>
             <div id="typing-indicator" class="typing">Escribiendo...</div>
         </div>
 
         <div id="bot-options">
-            <button class="opt-btn" onclick="handleInput('servicios', 'Ver servicios IT')">🛠️ Ver servicios IT</button>
-            <button class="opt-btn" onclick="handleInput('urgente', '¡Tengo una urgencia!')">🚨 ¡Tengo una urgencia!</button>
-            <button class="opt-btn" onclick="handleInput('horario', 'Consultar horario')">🕒 Consultar horario</button>
+            <button class="opt-btn" onclick="handleInput('servicios', '🛠️ Consultar Servicios')">🛠️ Consultar Servicios</button>
+            <button class="opt-btn" onclick="handleInput('tecnico', '🖥️ Problema Técnico')">🖥️ Problema Técnico</button>
+            <button class="opt-btn" onclick="handleInput('horario', '🕒 Ver Horarios')">🕒 Ver Horarios</button>
         </div>
     </div>
 
@@ -275,10 +230,16 @@
         const messagesContainer = document.getElementById('bot-messages');
         const optionsContainer = document.getElementById('bot-options');
         const typingIndicator = document.getElementById('typing-indicator');
+        const botWin = document.getElementById('bot-window');
 
         function toggleBot() {
-            const win = document.getElementById('bot-window');
-            win.style.display = (win.style.display === 'flex') ? 'none' : 'flex';
+            botWin.style.display = (botWin.style.display === 'flex') ? 'none' : 'flex';
+        }
+
+        // Función para el botón del Hero que fuerza al bot a hablar de soporte
+        function openBotWithProblem() {
+            botWin.style.display = 'flex';
+            handleInput('tecnico', '🖥️ Solicitar Soporte desde Inicio');
         }
 
         function addMessage(text, type) {
@@ -290,10 +251,7 @@
         }
 
         function handleInput(key, label) {
-            // Añadir mensaje del usuario
             addMessage(label, 'user');
-            
-            // Mostrar "escribiendo"
             typingIndicator.style.display = 'block';
             optionsContainer.style.pointerEvents = 'none';
             optionsContainer.style.opacity = '0.5';
@@ -312,34 +270,39 @@
 
             switch(key) {
                 case 'servicios':
-                    response = "Ofrecemos soporte de Nivel 1 y 2, despliegue de redes corporativas y ciberseguridad. ¿Qué área te interesa más?";
+                    response = "Ofrecemos mantenimiento de servidores, configuración de redes y soporte avanzado. ¿En qué área necesitas ayuda?";
                     newOptions = `
-                        <button class="opt-btn" onclick="handleInput('redes', 'Configuración de Redes')">🌐 Redes y Dominios</button>
-                        <button class="opt-btn" onclick="handleInput('soporte', 'Asistencia Técnica')">🖥️ Soporte Directo</button>
-                        <button class="opt-btn" onclick="handleInput('inicio', 'Volver al inicio')">🔙 Volver</button>
+                        <button class="opt-btn" onclick="handleInput('redes', '🌐 Redes y Dominios')">🌐 Redes y Dominios</button>
+                        <button class="opt-btn" onclick="handleInput('tecnico', '🖥️ Soporte Directo')">🖥️ Soporte Directo</button>
+                        <button class="opt-btn" onclick="handleInput('inicio', '🔙 Volver')">🔙 Volver</button>
+                    `;
+                    break;
+                case 'tecnico':
+                    response = "Entiendo. Para problemas técnicos, necesito agendar una intervención en tu sistema. Verificando disponibilidad de técnicos...";
+                    newOptions = `
+                        <button class="opt-btn" style="border-color: #22c55e; color: #22c55e;" onclick="location.href='citas.html'">📅 AGENDAR CITA AHORA</button>
+                        <button class="opt-btn" onclick="location.href='soporte.html'">🎫 Abrir Ticket (Consulta)</button>
+                        <button class="opt-btn" onclick="handleInput('inicio', '🔙 Volver')">🔙 Volver</button>
                     `;
                     break;
                 case 'redes':
-                    response = "Somos expertos en Active Directory y redes empresariales en Madrid. Podemos optimizar tu infraestructura actual.";
-                    newOptions = `<button class="opt-btn" onclick="location.href='soporte.html'">Solicitar Auditoría</button>
-                                  <button class="opt-btn" onclick="handleInput('inicio', 'Volver')">🔙 Volver</button>`;
-                    break;
-                case 'urgente':
-                    response = "Si es una emergencia crítica, te recomiendo usar nuestro acceso directo a WhatsApp para atención inmediata.";
-                    newOptions = `<button class="opt-btn" style="border-color:#25d366; color:#25d366" onclick="window.open('https://wa.me/34600000000')">📱 Hablar por WhatsApp</button>
-                                  <button class="opt-btn" onclick="handleInput('inicio', 'Menu Principal')">🔙 Menu Principal</button>`;
+                    response = "Somos expertos en despliegue corporativo y bypass de CG-NAT. Para un diagnóstico preciso, el técnico debe agendar una sesión.";
+                    newOptions = `
+                        <button class="opt-btn" style="border-color: #22c55e; color: #22c55e;" onclick="location.href='citas.html'">📅 Reservar Cita de Red</button>
+                        <button class="opt-btn" onclick="handleInput('inicio', 'Volver')">🔙 Volver</button>
+                    `;
                     break;
                 case 'horario':
-                    response = "Nuestro horario de atención técnica presencial es de Lunes a Viernes de 9:00 a 18:30.";
+                    response = "Nuestro horario de atención técnica es de <b>Lunes a Viernes de 9:00 a 18:30</b>.";
                     newOptions = `<button class="opt-btn" onclick="handleInput('inicio', 'Entendido')">✅ Entendido</button>`;
                     break;
                 case 'inicio':
                 default:
-                    response = "¿En qué más puedo asistirte?";
+                    response = "¿En qué más puedo ayudarte?";
                     newOptions = `
-                        <button class="opt-btn" onclick="handleInput('servicios', 'Ver servicios IT')">🛠️ Ver servicios IT</button>
-                        <button class="opt-btn" onclick="handleInput('urgente', '¡Tengo una urgencia!')">🚨 ¡Tengo una urgencia!</button>
-                        <button class="opt-btn" onclick="handleInput('horario', 'Consultar horario')">🕒 Consultar horario</button>
+                        <button class="opt-btn" onclick="handleInput('servicios', '🛠️ Consultar Servicios')">🛠️ Consultar Servicios</button>
+                        <button class="opt-btn" onclick="handleInput('tecnico', '🖥️ Problema Técnico')">🖥️ Problema Técnico</button>
+                        <button class="opt-btn" onclick="handleInput('horario', '🕒 Ver Horarios')">🕒 Ver Horarios</button>
                     `;
             }
 
